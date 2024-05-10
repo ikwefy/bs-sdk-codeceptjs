@@ -1,0 +1,37 @@
+{
+  "name": "@bs-sdk-e2e",
+  "version": "1.0.0",
+  "description": "CodeceptJS based e2e framework",
+  "scripts": {
+    "e2e": "codeceptjs run --reporter mocha-multi --steps --profile",
+    "capabilities": "codeceptjs list",
+    "testReport": "allure open allure-report",
+    "clear": "rimraf output ; rimraf allure-report ; rimraf junitReport",
+    "e2e-browserstack": "browserstack-node-sdk codeceptjs run --reporter mocha-multi --steps --profile",
+    "capabilities-browserstack": "browserstack-node-sdk codeceptjs list"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "volta": {
+    "node": "18.17.0",
+    "pnpm": "8.15.4"
+  },
+  "author": "MN",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@codeceptjs/allure-legacy": "^1.0.2",
+    "@playwright/test": "1.30.0",
+    "allure-commandline": "2.13.8",
+    "axios-curlirize": "1.3.7",
+    "browserstack-local": "1.5.1",
+    "browserstack-node-sdk": "^1.32.6",
+    "codeceptjs": "3.4.0",
+    "codeceptjs-assert": "0.0.5",
+    "expect-playwright": "^0.8.0",
+    "mocha-junit-reporter": "2.2.0",
+    "mocha-multi": "1.1.7",
+    "playwright": "1.30.0",
+    "rimraf": "^3.0.2"
+  }
+}
