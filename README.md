@@ -1,5 +1,6 @@
 # bs-sdk-test
 
+-  install node 18.17.0
 - `npm install -g pnpm` or `brew install pnpm` or `volta install pnpm` (then add `export VOLTA_FEATURE_PNPM=1` to your terminal startup script ~/.zshrc to enable pnpm support in volta.)
 - `cd e2e`
 - `pnpm install`
