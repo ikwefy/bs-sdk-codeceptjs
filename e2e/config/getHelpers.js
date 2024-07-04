@@ -1,4 +1,7 @@
-function getHelpers() {
+const { getBrowserConfig } = require('./getBrowserProfiles.js');
+
+function getHelpers(argsObject) {
+  let codeceptHelpers;
   const baseHelpers = {
     GraphQL: {
       defaultHeaders: {
@@ -13,32 +16,30 @@ function getHelpers() {
     AssertWrapper: {
       require: 'codeceptjs-assert',
     },
-    Playwright: {
-      url: 'http://',
-      browser: 'chromium',
-      waitForTimeout: 1000,
-      timeout: 1000,
-      restart: 'session',
-      keepBrowserState: true,
-      keepCookies: true,
-      trace: true,
-      keepTraceForPassedTests: true,
-      chromium: {
-        args: [
-          '--no-sandbox',
-          '--disable-gpu',
-          '--disable-dev-shm-usage',
-          '--ignore-certificate-errors',
-          '--enable-automation',
-        ],
-        // devtools: true, // for local debug needs
-      },
-      // emulate: devices['iPad Pro 11'], // for local mobile testing needs
-      // locale: 'en-GB', // for local debug needs in headless
-    },
   };
 
-  return baseHelpers;
+  const playwrightConfig = getBrowserConfig(argsObject);
+  if (playwrightConfig.extra.isBrowserstackProfile) {
+    const bsEndpoint = {
+      browserWSEndpoint: {
+        wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(
+          JSON.stringify(playwrightConfig.extra.capabilities),
+        )}`,
+      },
+    };
+    Object.assign(playwrightConfig.main.chromium, bsEndpoint);
+  }
+  const playwrightHelper = {
+    Playwright: {
+      ...playwrightConfig.main,
+    },
+  };
+  codeceptHelpers = {
+    ...baseHelpers,
+    ...playwrightHelper,
+  };
+
+  return codeceptHelpers;
 }
 
 module.exports = getHelpers;

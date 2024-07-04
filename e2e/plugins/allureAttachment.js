@@ -2,7 +2,7 @@ const { event, recorder, output, container } = require('codeceptjs');
 const fs = require('fs');
 const { parseProfile } = require('../config/getProfileDetails');
 
-const profileDetails = parseProfile(process.profile);
+const profileDetails = parseProfile(process.env.profile);
 
 const defaultConfig = {
   disableLogs: false,

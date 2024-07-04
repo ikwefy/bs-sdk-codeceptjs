@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-const aggregatedData = require('./config/aggregate')(process.profile);
+const aggregatedData = require('./config/aggregate')(process.env.profile);
 
 exports.config = {
   tests: './*_test.js',

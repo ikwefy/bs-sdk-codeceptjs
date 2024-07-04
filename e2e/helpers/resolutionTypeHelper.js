@@ -39,7 +39,7 @@ class ResolutionTypeHelper extends Helper {
     } else {
       this.currentResolution = 'desktop';
     }
-    const profileDetails = getProfileDetails(process.profile);
+    const profileDetails = getProfileDetails(process.env.profile);
     if (!profileDetails.emulate) {
       await this.resizeWindow(this.currentResolution);
       console.log(

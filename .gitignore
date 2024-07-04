@@ -1,0 +1,7 @@
+# e2e
+allure-report
+e2e/output
+e2e/junitReport
+e2e/log
+e2e/downloads
+e2e/node_modules

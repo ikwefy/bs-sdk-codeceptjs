@@ -7,3 +7,7 @@
 - `pnpm exec playwright install chromium`
 - to run test without bs-sdk `pnpm e2e cert:@test:chrome`
 - to run test with bs-sdk `pnpm e2e-browserstack cert:@test:chrome`
+- to run tests on bs automate:
+    enter YOUR_USERNAME and YOUR_PASSWORD here `e2e/config/getBrowserProfiles.js`
+    choose one of 3 available profiles `safariBrowserstack / firefoxBrowserstack / edgeBrowserstack / chromeBrowserstack`
+    run the following `pnpm e2e cert:@test:safariBrowserstack`

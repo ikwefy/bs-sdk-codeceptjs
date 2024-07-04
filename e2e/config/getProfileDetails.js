@@ -13,6 +13,8 @@ function getProfileDetails(profile) {
 
   return {
     profile: argsObject,
+    browserName: browserConfig.extra.browserName,
+    isBrowserstackProfile: browserConfig.extra.isBrowserstackProfile,
     isHeadless: !browserConfig.show,
     isPlaywright: profile.helper === 'playwright',
     emulate: browserConfig.emulate,
