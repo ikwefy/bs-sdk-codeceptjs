@@ -1,8 +1,5 @@
 function getPlugins() {
   return {
-    tryTo: {
-      enabled: true,
-    },
     screenshotOnFail: {
       enabled: true,
     },

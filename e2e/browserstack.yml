@@ -27,18 +27,27 @@ buildIdentifier: '#${BUILD_NUMBER}' # Supports strings along with either/both ${
 # Platforms object contains all the browser / device combinations you want to test on.
 # Entire list available here -> (https://www.browserstack.com/list-of-browsers-and-platforms/automate)
 platforms:
+  # The only one combination working
   - os: OS X
-    osVersion: Ventura
-    browserName: playwright-webkit
-    browserVersion: 17.0
-  - os: Windows
-    osVersion: 10
-    browserName: playwright-firefox
+    osVersion: Big Sur
+    browserName: Chrome
     browserVersion: latest
-  - os: Windows
-    osVersion: 10
-    browserName: Edge
-    browserVersion: latest
+  # The rest is not getting triggered under bs automate
+  # - browserName: playwright-firefox
+  #   os: Windows
+  #   osVersion: 10
+  #   browserVersion: 134.0
+  # - browserName: playwright-webkit
+  #   os: OS X
+  #   osVersion: Monterey
+  #   browserVersion: 18
+  # - browserName: Edge
+  #   os: Windows
+  #   osVersion: 11
+  #   browserVersion: 132.0
+  # - browserName: safari
+  #   osVersion: 15.0
+  #   deviceName: iPad 9th
     
 # =======================
 # Parallels per Platform
@@ -75,5 +84,5 @@ consoleLogs: errors # <string> Remote browser's console debug levels to be print
 
 # Test Observability is an intelligent test reporting & debugging product. It collects data using the SDK. Read more about what data is collected at https://www.browserstack.com/docs/test-observability/references/terms-and-conditions
 # Visit observability.browserstack.com to see your test reports and insights. To disable test observability, specify `testObservability: false` in the key below.
-testObservability: true
-browserstackAutomation: true
+testObservability: false
+accessibility: false
