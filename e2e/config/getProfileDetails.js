@@ -1,9 +1,12 @@
-function parseProfile(profile) {
+const { getBrowserConfig } = require('./getBrowserProfiles');
+const defaultProfile = 'int::chromeHeadless:playwright:false';
+
+function parseProfile(profile = defaultProfile) {
   const splitArgs = profile.split(':');
   return {
-    env: splitArgs[0],
+    env: splitArgs[0] || 'int',
     suite: splitArgs[1],
-    browser: splitArgs[2],
+    browser: splitArgs[2] || 'chromeHeadless',
     helper: splitArgs?.[3] || 'playwright',
   };
 }
@@ -16,8 +19,8 @@ function getProfileDetails(profile) {
     browserName: browserConfig.extra.browserName,
     isBrowserstackProfile: browserConfig.extra.isBrowserstackProfile,
     isHeadless: !browserConfig.show,
-    isPlaywright: profile.helper === 'playwright',
     emulate: browserConfig.emulate,
+    isAccessibilityRun: true,
   };
 }
 

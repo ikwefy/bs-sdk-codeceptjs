@@ -15,6 +15,10 @@ function getPlugins() {
       enabled: true,
       require: './plugins/allureAttachment',
     },
+    hooksPlugin: {
+      enabled: true,
+      require: './plugins/beforeAfter.js',
+    },
   };
 }
 

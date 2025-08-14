@@ -8,6 +8,9 @@ function getHelpers(argsObject) {
         'content-type': 'application/json',
       },
     },
+    CacheStorageHelper: {
+      require: './helpers/cacheStorageHelper.js',
+    },
     REST: {
       defaultHeaders: {
         'content-type': 'application/json',
