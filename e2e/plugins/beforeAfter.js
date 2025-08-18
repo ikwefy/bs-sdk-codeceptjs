@@ -6,7 +6,7 @@ const { getProfileDetails } = require('../config/getProfileDetails');
 const profileDetails = getProfileDetails(process.env.profile);
 
 module.exports = () => {
-  event.dispatcher.on(event.all.after, () => {
+  event.dispatcher.on(event.test.finished, () => {
     console.info(`=================After test report`);
     if (profileDetails.isAccessibilityRun) {
       recorder.add('Work with accessibility report assertions', async ({ I }) => {
