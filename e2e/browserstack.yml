@@ -13,7 +13,7 @@ accessKey: YOUR_ACCESS_KEY
 # Set 'projectName' to the name of your project. Example, Marketing Website
 projectName: BrowserStack Samples 
 # Set `buildName` as the name of the job / testsuite being run
-buildName: browserstack build 
+# buildName: browserstack build 
 # `buildIdentifier` is a unique id to differentiate every execution that gets appended to
 # buildName. Choose your buildIdentifier format from the available expressions:
 # ${BUILD_NUMBER} (Default): Generates an incremental counter with every execution
@@ -31,7 +31,7 @@ platforms:
   - os: OS X
     osVersion: Big Sur
     browserName: Chrome
-    browserVersion: latest
+    browserVersion: 136
   # The rest is not getting triggered under bs automate
   # - browserName: playwright-firefox
   #   os: Windows
@@ -78,7 +78,7 @@ browserstackLocal: false # <boolean> (Default false)
 # ===================
 debug: false # <boolean> # Set to true if you need screenshots for every selenium command ran
 networkLogs: false # <boolean> Set to true to enable HAR logs capturing
-consoleLogs: errors # <string> Remote browser's console debug levels to be printed (Default: errors)
+consoleLogs: verbose # <string> Remote browser's console debug levels to be printed (Default: errors)
 # Available options are `disable`, `errors`, `warnings`, `info`, `verbose` (Default: errors)
 # CUSTOM_TAG_<INT>: # <string> (Default: parent folder name of the test file) Custom tag for your test suite
 
@@ -86,3 +86,12 @@ consoleLogs: errors # <string> Remote browser's console debug levels to be print
 # Visit observability.browserstack.com to see your test reports and insights. To disable test observability, specify `testObservability: false` in the key below.
 testObservability: false
 accessibility: false
+accessibilityOptions:
+    wcagVersion: wcag21aaa # Default: wcag21aa
+    includeIssueType: 
+        bestPractice: false # Default: false
+        needsReview: false # Default: true
+        experimental: false # Default: true
+        advanced: false # Default: true
+idleTImeout: 300 # <integer> (Default: 300) Time in seconds after which the test will be marked as failed if no activity is detected
+selfHealing: false # <boolean> (Default: true) Set to false if you do not want the SDK to automatically retry failed tests

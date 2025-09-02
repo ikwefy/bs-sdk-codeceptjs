@@ -6,7 +6,7 @@
     "e2e": "codeceptjs run --reporter mocha-multi --steps --profile",
     "capabilities": "codeceptjs list",
     "testReport": "allure open allure-report",
-    "clear": "rimraf output ; rimraf allure-report ; rimraf junitReport",
+    "clear": "rimraf output ; rimraf allure-report ; rimraf junitReport ; rimraf log ; rimraf performance-report",
     "e2e-browserstack": "browserstack-node-sdk codeceptjs run --reporter mocha-multi --steps --profile",
     "capabilities-browserstack": "browserstack-node-sdk codeceptjs list"
   },

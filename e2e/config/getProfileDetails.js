@@ -20,7 +20,7 @@ function getProfileDetails(profile) {
     isBrowserstackProfile: browserConfig.extra.isBrowserstackProfile,
     isHeadless: !browserConfig.show,
     emulate: browserConfig.emulate,
-    isAccessibilityRun: true,
+    isAccessibilityRun: false,
   };
 }
 
